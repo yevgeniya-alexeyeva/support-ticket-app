@@ -3,7 +3,9 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/Header";
-import { ToastContainer, toast } from "react-toastify";
+import NewTicket from "./pages/NewTicket";
+import PrivetRoute from "./components/PrivetRoute";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/new-ticket' element={<PrivetRoute />}>
+              <Route path='/new-ticket' element={<NewTicket />} />
+            </Route>
           </Routes>
         </div>
         <ToastContainer />
