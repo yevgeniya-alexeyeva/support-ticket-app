@@ -3,6 +3,7 @@ const { User, Ticket } = require("../model");
 
 const getTickets = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user.id);
+
   if (!user) {
     res.status(401).json({
       code: 401,
@@ -10,6 +11,7 @@ const getTickets = asyncHandler(async (req, res) => {
     });
   }
   const tickets = await Ticket.find({ user: req.user.id });
+
   res.status(200).json(tickets);
 });
 
