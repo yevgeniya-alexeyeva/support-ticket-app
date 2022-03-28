@@ -68,12 +68,7 @@ export const closeTicket = createAsyncThunk(
       return await ticketService.closeTicket(ticketId, token);
     } catch (error) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
+        error?.response?.data?.message || error.message || error.toString();
       return thunkAPI.rejectWithValue(message);
     }
   }
